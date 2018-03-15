@@ -1,0 +1,9 @@
+---
+Name: bitlyroutes
+After:
+  - '#rootroutes'
+  - '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'vd-bitly//$Action/$ID/$Name': 'Vulcan\Bitly\Controllers\BitlyController'

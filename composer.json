@@ -1,0 +1,36 @@
+{
+  "name": "vulcandigital/silverstripe-bitly",
+  "description": "A module for shortening sitetree links and their statistics from the CMS",
+  "type": "silverstripe-vendormodule",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Reece Alexander",
+      "email": "reece@vulcandigital.co.nz"
+    }
+  ],
+  "require": {
+    "silverstripe/recipe-cms": "^1",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "require-dev": {
+    "phpunit/PHPUnit": "^5.7",
+    "squizlabs/php_codesniffer": "3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vulcan\\Bitly\\": "src/",
+      "Vulcan\\Bitly\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    },
+    "expose": [
+      "js"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
