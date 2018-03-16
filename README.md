@@ -5,10 +5,17 @@ Provides [Bitly](https://bitly.com) url generation for all pages.
 * silverstripe/cms: ^4
 
 ## Installation
+First, install with composer and then configure your API key
+
 ```bash
 $ composer require vulcandigital/silverstripe-bitly
 ```
 
+**mysite/_config/bitly.yml**
+```yaml
+Vulcan\Bitly\Bitly:
+  api_key: 'YOUR_ACCESS_TOKEN'
+```
 Afterwards, run `dev/build`
 
 ## Screenshots
