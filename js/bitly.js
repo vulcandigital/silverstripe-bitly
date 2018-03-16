@@ -1,27 +1,34 @@
+jQuery.entwine('ss', function ($) {
+    jQuery('#bitlyCopyUrl').entwine({
+        onclick: function () {
+            var url = jQuery(this).attr('data-href');
+            Vulcan.Bitly.copyUrl(url);
+        }
+    });
+
+    jQuery('.bitly-field').entwine({
+        onmatch: function () {
+            var $desc = jQuery('.field.urlsegment .edit-holder .form__field-description').clone();
+            $desc.html("<strong>Warning</strong>: Changing your URL segment will force your Bitly URL to update and unfortunately the click count will reset as Bitly does not allow you to edit links.");
+            jQuery('.field.urlsegment .edit-holder').append($desc);
+        }
+    });
+
+    jQuery('.field.urlsegment .update').entwine({
+        onclick: function () {
+            jQuery('#Form_EditForm_BitlyURL_Holder').find('.preview-holder').html("<div style='margin-top: 8px;'>URL segment has changed, waiting for you to save.</div>")
+        }
+    });
+
+    jQuery('#bitlyRefresh').entwine({
+        onclick: function () {
+            Vulcan.Bitly.updateClicks();
+        }
+    });
+});
+
 var Vulcan = {
     Bitly: {
-        initEvents: function () {
-            var _this = this;
-
-            jQuery('#bitlyCopyUrl').on('click', function () {
-                var url = jQuery(this).attr('data-href');
-                _this.copyUrl(url);
-            });
-
-            jQuery('.field.urlsegment .update').on('click', function () {
-                jQuery('#Form_EditForm_BitlyURL_Holder').find('.preview-holder').html("<div style='margin-top: 8px;'>URL segment has changed, waiting for you to save.</div>")
-            });
-
-            if (jQuery('.bitly-field').length > 0) {
-                var $desc = jQuery('.field.urlsegment .edit-holder .form__field-description').clone();
-                $desc.html("<strong>Warning</strong>: Changing your URL segment will force your Bitly URL to update and unfortunately the click count will reset as Bitly does not allow you to edit links.");
-                jQuery('.field.urlsegment .edit-holder').append($desc);
-            }
-
-            jQuery('#bitlyRefresh').on('click', function () {
-                _this.updateClicks();
-            });
-        },
         copyUrl: function (url) {
             var input = document.createElement('input');
             input.setAttribute('value', url);
@@ -54,5 +61,3 @@ var Vulcan = {
         }
     }
 };
-
-Vulcan.Bitly.initEvents();

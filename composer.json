@@ -28,7 +28,7 @@
       "dev-master": "1.0.x-dev"
     },
     "expose": [
-      "js"
+      "dist"
     ]
   },
   "minimum-stability": "dev",

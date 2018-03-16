@@ -37,7 +37,7 @@ class BitlyField extends ReadonlyField
      */
     public function __construct($name, $title = null, $value = null, BitlyUrl $record)
     {
-        Requirements::javascript('vulcandigital/silverstripe-bitly:js/bitly.min.js');
+        Requirements::javascript('vulcandigital/silverstripe-bitly:dist/js/bitly.min.js');
         $this->setBitly($record);
 
         parent::__construct($name, $title, $value);
